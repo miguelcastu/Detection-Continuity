@@ -53,3 +53,26 @@ The CLI has zero runtime dependencies. See [contract and input specification](SP
 [design and evidence limits](DESIGN.md), [fixture provenance](PROVENANCE.md) and
 [release verification](VALIDATION.md).
 The original single-rule prototype remains available as `continuity.py`.
+
+## Integrate with a parser or ingestion repository
+
+Keep labeled scenarios and the approved baseline under review. In the candidate
+build, replay the same scenarios through the proposed parser or routing policy.
+Write the resulting exports beside the suite and reference them as its candidate
+inputs. Keep the baseline and the labels independent of that build.
+
+```sh
+mkdir -p var
+detcontinuity check contracts/pipeline.json > var/coverage.json
+```
+
+Make this a required CI check. Upload `var/coverage.json` even if the command
+fails so reviewers can compare the baseline evidence with the candidate stage
+observations. The included [CI workflow](.github/workflows/ci.yml) shows how to
+run the tests and publish reports from a runner.
+
+When a regression appears, use `impact` to find which stages depend on the
+changed field. Compare matched IDs and stage samples in the JSON report, then
+fix the parser or update the detection contract through review. An
+`invalid_baseline` result means the experiment needs a valid control before
+the candidate can be evaluated.
