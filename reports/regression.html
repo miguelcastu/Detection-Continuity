@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Detection Continuity report</title>
+<style>
+:root{color-scheme:light dark} body{font:1rem system-ui;max-width:80rem;margin:2rem auto;padding:0 1rem}
+.table{overflow:auto} table{border-collapse:collapse;width:100%} th,td{text-align:left;
+padding:.6rem;border:1px solid GrayText} code{overflow-wrap:anywhere}
+</style></head><body>
+<h1>Detection Continuity</h1>
+<p>Offline reference replay. See the JSON report for event IDs, stage diagnostics and input fingerprints.</p>
+<p>Suite SHA-256 <code>1398372113ffcaac99e9e66b534d9ecc2fc1dcfc109bbca699c61df6c8e1e378</code></p>
+<div class="table"><table><caption>Scenario assertions</caption><thead><tr><th scope="col">Change</th><th scope="col">Scenario</th><th scope="col">Rule</th><th scope="col">Status</th><th scope="col">Finding</th><th scope="col">Stage observations</th><th scope="col">Baseline matches</th><th scope="col">Candidate matches</th></tr></thead>
+<tbody><tr><td>Candidate</td><td>SentinelOps synthetic access and control-plane changes</td><td>AZURE-ACCESS-THEN-RBAC-AND-LOG-CHANGE</td><td>pass</td><td>All expectations met</td><td></td><td>2</td><td>2</td></tr><tr><td>Candidate</td><td>SentinelOps access without diagnostic change</td><td>AZURE-ACCESS-THEN-RBAC-AND-LOG-CHANGE</td><td>pass</td><td>All expectations met</td><td></td><td>0</td><td>0</td></tr><tr><td>Candidate</td><td>Google SecOps Lab cross-source scenario</td><td>GCP-LOGIN-THEN-IAM</td><td>regression</td><td>missed_detection</td><td>Stage 2: 1 missing join</td><td>1</td><td>0</td></tr><tr><td>Candidate</td><td>Google SecOps Lab distinct identity variant</td><td>GCP-LOGIN-THEN-IAM</td><td>pass</td><td>All expectations met</td><td></td><td>0</td><td>0</td></tr></tbody></table></div></body></html>

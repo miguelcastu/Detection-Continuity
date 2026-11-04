@@ -1,0 +1,149 @@
+{
+  "evidence": "synthetic",
+  "events": [
+    {
+      "synthetic": true,
+      "event_id": "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+      "kind": "authentication_failure",
+      "source": "synthetic-authentication",
+      "time": "2026-10-18T12:00:00.000Z",
+      "actor": "synthetic-user-00",
+      "resource": null
+    },
+    {
+      "synthetic": true,
+      "event_id": "synthetic-efc879683f4c51cd8ec068a875b85a81",
+      "kind": "authentication_failure",
+      "source": "synthetic-authentication",
+      "time": "2026-10-18T12:01:00.000Z",
+      "actor": "synthetic-user-00",
+      "resource": null
+    },
+    {
+      "synthetic": true,
+      "event_id": "synthetic-2c5be1cc6dff54d9a21147cfbb46b11b",
+      "kind": "authentication_failure",
+      "source": "synthetic-authentication",
+      "time": "2026-10-18T12:02:00.000Z",
+      "actor": "synthetic-user-00",
+      "resource": null
+    },
+    {
+      "synthetic": true,
+      "event_id": "synthetic-742a1a0130455f3aa74dcf2f45ac94df",
+      "kind": "authentication_success",
+      "source": "synthetic-authentication",
+      "time": "2026-10-18T12:03:00.000Z",
+      "actor": "synthetic-user-00",
+      "resource": null
+    },
+    {
+      "synthetic": true,
+      "event_id": "synthetic-c16844a06f4e5c02a1475783ac7b9e1c",
+      "kind": "rbac_assignment",
+      "source": "azure-activity",
+      "time": "2026-10-18T12:06:00.000Z",
+      "actor": "synthetic-user-00",
+      "resource": "lab-resource-workspace-01"
+    },
+    {
+      "synthetic": true,
+      "event_id": "synthetic-c83d9c1a12e754c180d07420d03e1977",
+      "kind": "endpoint_execution",
+      "source": "synthetic-endpoint",
+      "time": "2026-10-18T12:13:00.000Z",
+      "actor": "synthetic-user-00",
+      "resource": null
+    },
+    {
+      "synthetic": true,
+      "event_id": "synthetic-9fa2832381825effa31f66e66a024a33",
+      "kind": "authentication_failure",
+      "source": "synthetic-authentication",
+      "time": "2026-10-18T12:00:00.000Z",
+      "actor": "synthetic-user-01",
+      "resource": null
+    },
+    {
+      "synthetic": true,
+      "event_id": "synthetic-50e4f67e16f25074bc2255dbc9376a08",
+      "kind": "authentication_failure",
+      "source": "synthetic-authentication",
+      "time": "2026-10-18T12:01:00.000Z",
+      "actor": "synthetic-user-01",
+      "resource": null
+    },
+    {
+      "synthetic": true,
+      "event_id": "synthetic-0a3f32aee0bc57b78a7464518812fa50",
+      "kind": "authentication_failure",
+      "source": "synthetic-authentication",
+      "time": "2026-10-18T12:02:00.000Z",
+      "actor": "synthetic-user-01",
+      "resource": null
+    },
+    {
+      "synthetic": true,
+      "event_id": "synthetic-8939080450a15d118fd86ae654ca478e",
+      "kind": "authentication_success",
+      "source": "synthetic-authentication",
+      "time": "2026-10-18T12:03:00.000Z",
+      "actor": "synthetic-user-01",
+      "resource": null
+    },
+    {
+      "synthetic": true,
+      "event_id": "synthetic-8d637e5ec1aa55d5a611d99161b99e86",
+      "kind": "rbac_assignment",
+      "source": "azure-activity",
+      "time": "2026-10-18T12:06:00.000Z",
+      "actor": "synthetic-user-01",
+      "resource": "lab-resource-workspace-02"
+    },
+    {
+      "synthetic": true,
+      "event_id": "synthetic-5e295296ffee544a81c67240594eeed3",
+      "kind": "endpoint_execution",
+      "source": "synthetic-endpoint",
+      "time": "2026-10-18T12:13:00.000Z",
+      "actor": "synthetic-user-01",
+      "resource": null
+    },
+    {
+      "synthetic": true,
+      "event_id": "synthetic-2a5819ea3aa558a7bdb01af744685123",
+      "kind": "administrative_failure",
+      "source": "azure-activity",
+      "time": "2026-10-18T12:04:00.000Z",
+      "actor": "synthetic-user-02",
+      "resource": "lab-resource-workspace-03"
+    },
+    {
+      "synthetic": true,
+      "event_id": "synthetic-e6b92b7ddfaa5dd4912178bf350b078a",
+      "kind": "policy_change",
+      "source": "azure-activity",
+      "time": "2026-10-18T12:09:00.000Z",
+      "actor": "synthetic-user-02",
+      "resource": "lab-resource-workspace-03"
+    },
+    {
+      "synthetic": true,
+      "event_id": "synthetic-c16844a06f4e5c02a1475783ac7b9e1c",
+      "kind": "rbac_assignment",
+      "source": "azure-activity",
+      "time": "2026-10-18T12:06:00.000Z",
+      "actor": "synthetic-user-00",
+      "resource": "lab-resource-workspace-01"
+    },
+    {
+      "synthetic": true,
+      "event_id": "synthetic-9517ad7351ad54be8ed240b00b0f053b",
+      "kind": "rbac_assignment",
+      "source": "azure-activity",
+      "time": "2026-10-18T12:06:00.000Z",
+      "actor": "synthetic-user-00",
+      "resource": "lab-resource-workspace-01"
+    }
+  ]
+}

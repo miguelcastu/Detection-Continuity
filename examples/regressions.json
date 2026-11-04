@@ -1,0 +1,228 @@
+{
+  "contract": {
+    "sequence": [
+      "risky_signin",
+      "iam_grant"
+    ],
+    "window": 60,
+    "deadline": 90
+  },
+  "cases": [
+    {
+      "name": "healthy delivery",
+      "expected": true,
+      "baseline": [
+        {
+          "id": "login-1",
+          "kind": "risky_signin",
+          "time": 10,
+          "arrival": 10,
+          "identity": "demo@example.test"
+        },
+        {
+          "id": "grant-1",
+          "kind": "iam_grant",
+          "time": 35,
+          "arrival": 35,
+          "identity": "demo@example.test"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "grant-1",
+          "kind": "iam_grant",
+          "time": 35,
+          "arrival": 35,
+          "identity": "demo@example.test"
+        },
+        {
+          "id": "login-1",
+          "kind": "risky_signin",
+          "time": 10,
+          "arrival": 10,
+          "identity": "demo@example.test"
+        },
+        {
+          "id": "login-1",
+          "kind": "risky_signin",
+          "time": 10,
+          "arrival": 10,
+          "identity": "demo@example.test"
+        }
+      ]
+    },
+    {
+      "name": "benign split identities",
+      "expected": false,
+      "baseline": [
+        {
+          "id": "login-1",
+          "kind": "risky_signin",
+          "time": 10,
+          "arrival": 10,
+          "identity": "demo@example.test"
+        },
+        {
+          "id": "grant-1",
+          "kind": "iam_grant",
+          "time": 35,
+          "arrival": 35,
+          "identity": "other@example.test"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "grant-1",
+          "kind": "iam_grant",
+          "time": 35,
+          "arrival": 35,
+          "identity": "demo@example.test"
+        },
+        {
+          "id": "login-1",
+          "kind": "risky_signin",
+          "time": 10,
+          "arrival": 10,
+          "identity": "other@example.test"
+        }
+      ]
+    },
+    {
+      "name": "identity lost in parser",
+      "expected": true,
+      "baseline": [
+        {
+          "id": "login-1",
+          "kind": "risky_signin",
+          "time": 10,
+          "arrival": 10,
+          "identity": "demo@example.test"
+        },
+        {
+          "id": "grant-1",
+          "kind": "iam_grant",
+          "time": 35,
+          "arrival": 35,
+          "identity": "demo@example.test"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "login-1",
+          "kind": "risky_signin",
+          "time": 10,
+          "arrival": 10,
+          "identity": "demo@example.test"
+        },
+        {
+          "id": "grant-1",
+          "kind": "iam_grant",
+          "time": 35,
+          "arrival": 35,
+          "identity": null
+        }
+      ]
+    },
+    {
+      "name": "grant delayed beyond cutoff",
+      "expected": true,
+      "baseline": [
+        {
+          "id": "login-1",
+          "kind": "risky_signin",
+          "time": 10,
+          "arrival": 10,
+          "identity": "demo@example.test"
+        },
+        {
+          "id": "grant-1",
+          "kind": "iam_grant",
+          "time": 35,
+          "arrival": 35,
+          "identity": "demo@example.test"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "login-1",
+          "kind": "risky_signin",
+          "time": 10,
+          "arrival": 10,
+          "identity": "demo@example.test"
+        },
+        {
+          "id": "grant-1",
+          "kind": "iam_grant",
+          "time": 35,
+          "arrival": 91,
+          "identity": "demo@example.test"
+        }
+      ]
+    },
+    {
+      "name": "grant source dropped",
+      "expected": true,
+      "baseline": [
+        {
+          "id": "login-1",
+          "kind": "risky_signin",
+          "time": 10,
+          "arrival": 10,
+          "identity": "demo@example.test"
+        },
+        {
+          "id": "grant-1",
+          "kind": "iam_grant",
+          "time": 35,
+          "arrival": 35,
+          "identity": "demo@example.test"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "login-1",
+          "kind": "risky_signin",
+          "time": 10,
+          "arrival": 10,
+          "identity": "demo@example.test"
+        }
+      ]
+    },
+    {
+      "name": "identity collapse creates false alert",
+      "expected": false,
+      "baseline": [
+        {
+          "id": "login-1",
+          "kind": "risky_signin",
+          "time": 10,
+          "arrival": 10,
+          "identity": "demo@example.test"
+        },
+        {
+          "id": "grant-1",
+          "kind": "iam_grant",
+          "time": 35,
+          "arrival": 35,
+          "identity": "other@example.test"
+        }
+      ],
+      "candidate": [
+        {
+          "id": "login-1",
+          "kind": "risky_signin",
+          "time": 10,
+          "arrival": 10,
+          "identity": "demo@example.test"
+        },
+        {
+          "id": "grant-1",
+          "kind": "iam_grant",
+          "time": 35,
+          "arrival": 35,
+          "identity": "demo@example.test"
+        }
+      ]
+    }
+  ]
+}

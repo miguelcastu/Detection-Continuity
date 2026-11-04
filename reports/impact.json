@@ -1,0 +1,20 @@
+{
+  "report_version": 1,
+  "tool_version": "1.0.0",
+  "evidence": "offline_reference_replay",
+  "suite_sha256": "7ef78785f01b6e444ba5c7b330482c228366b8749fe964d32561b7043e436c3b",
+  "dependencies": [
+    {
+      "rule": "GCP-LOGIN-THEN-IAM",
+      "stage": 2,
+      "fields": [
+        "arrival",
+        "fields.actor",
+        "fields.operation",
+        "id",
+        "kind",
+        "time"
+      ]
+    }
+  ]
+}

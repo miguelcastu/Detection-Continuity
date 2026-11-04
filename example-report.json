@@ -1,0 +1,210 @@
+{
+  "version": 1,
+  "suite_sha256": "47b2e4430b706abf9405d3c74576338b772c927c48273b271c67e5e72a161780",
+  "cases": [
+    {
+      "case": "healthy delivery",
+      "expected": true,
+      "status": "pass",
+      "baseline": {
+        "detected": true,
+        "evidence": [
+          [
+            "login-1",
+            "grant-1"
+          ]
+        ],
+        "counts": {
+          "risky_signin": 1,
+          "iam_grant": 1
+        },
+        "input_count": 2,
+        "unique_count": 2,
+        "issues": {}
+      },
+      "candidate": {
+        "detected": true,
+        "evidence": [
+          [
+            "login-1",
+            "grant-1"
+          ]
+        ],
+        "counts": {
+          "risky_signin": 1,
+          "iam_grant": 1
+        },
+        "input_count": 3,
+        "unique_count": 2,
+        "issues": {}
+      }
+    },
+    {
+      "case": "benign split identities",
+      "expected": false,
+      "status": "pass",
+      "baseline": {
+        "detected": false,
+        "evidence": [],
+        "counts": {
+          "risky_signin": 1,
+          "iam_grant": 1
+        },
+        "input_count": 2,
+        "unique_count": 2,
+        "issues": {}
+      },
+      "candidate": {
+        "detected": false,
+        "evidence": [],
+        "counts": {
+          "risky_signin": 1,
+          "iam_grant": 1
+        },
+        "input_count": 2,
+        "unique_count": 2,
+        "issues": {}
+      }
+    },
+    {
+      "case": "identity lost in parser",
+      "expected": true,
+      "status": "missed_detection",
+      "baseline": {
+        "detected": true,
+        "evidence": [
+          [
+            "login-1",
+            "grant-1"
+          ]
+        ],
+        "counts": {
+          "risky_signin": 1,
+          "iam_grant": 1
+        },
+        "input_count": 2,
+        "unique_count": 2,
+        "issues": {}
+      },
+      "candidate": {
+        "detected": false,
+        "evidence": [],
+        "counts": {
+          "risky_signin": 1,
+          "iam_grant": 1
+        },
+        "input_count": 2,
+        "unique_count": 2,
+        "issues": {
+          "missing_identity": [
+            "grant-1"
+          ]
+        }
+      }
+    },
+    {
+      "case": "grant delayed beyond cutoff",
+      "expected": true,
+      "status": "missed_detection",
+      "baseline": {
+        "detected": true,
+        "evidence": [
+          [
+            "login-1",
+            "grant-1"
+          ]
+        ],
+        "counts": {
+          "risky_signin": 1,
+          "iam_grant": 1
+        },
+        "input_count": 2,
+        "unique_count": 2,
+        "issues": {}
+      },
+      "candidate": {
+        "detected": false,
+        "evidence": [],
+        "counts": {
+          "risky_signin": 1,
+          "iam_grant": 1
+        },
+        "input_count": 2,
+        "unique_count": 2,
+        "issues": {
+          "late": [
+            "grant-1"
+          ]
+        }
+      }
+    },
+    {
+      "case": "grant source dropped",
+      "expected": true,
+      "status": "missed_detection",
+      "baseline": {
+        "detected": true,
+        "evidence": [
+          [
+            "login-1",
+            "grant-1"
+          ]
+        ],
+        "counts": {
+          "risky_signin": 1,
+          "iam_grant": 1
+        },
+        "input_count": 2,
+        "unique_count": 2,
+        "issues": {}
+      },
+      "candidate": {
+        "detected": false,
+        "evidence": [],
+        "counts": {
+          "risky_signin": 1,
+          "iam_grant": 0
+        },
+        "input_count": 1,
+        "unique_count": 1,
+        "issues": {
+          "absent_kind": [
+            "iam_grant"
+          ]
+        }
+      }
+    },
+    {
+      "case": "identity collapse creates false alert",
+      "expected": false,
+      "status": "new_false_positive",
+      "baseline": {
+        "detected": false,
+        "evidence": [],
+        "counts": {
+          "risky_signin": 1,
+          "iam_grant": 1
+        },
+        "input_count": 2,
+        "unique_count": 2,
+        "issues": {}
+      },
+      "candidate": {
+        "detected": true,
+        "evidence": [
+          [
+            "login-1",
+            "grant-1"
+          ]
+        ],
+        "counts": {
+          "risky_signin": 1,
+          "iam_grant": 1
+        },
+        "input_count": 2,
+        "unique_count": 2,
+        "issues": {}
+      }
+    }
+  ]
+}

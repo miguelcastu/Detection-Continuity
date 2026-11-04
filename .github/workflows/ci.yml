@@ -1,0 +1,33 @@
+name: Replay contract tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  replay:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: "3.12"
+      - run: python -m unittest -v
+      - run: python -m pip install .
+      - run: detcontinuity check examples/lab-healthy.json
+      - name: Generate review artifacts
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          mkdir -p var
+          detcontinuity check examples/lab-healthy.json --format junit > var/healthy.xml
+          detcontinuity benchmark examples/lab-healthy.json examples/faults.json > var/benchmark.json
+          detcontinuity benchmark examples/lab-healthy.json examples/faults.json --format html > var/benchmark.html
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: matrix.os == 'ubuntu-latest'
+        with:
+          name: detection-continuity
+          path: var/

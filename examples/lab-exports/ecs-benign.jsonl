@@ -1,0 +1,2 @@
+{"@timestamp":"2026-01-01T00:00:10Z","event":{"id":"ecs-1","action":"login","ingested":"2026-01-01T00:00:11Z","outcome":"success"},"user":{"id":"synthetic-user-01"}}
+{"@timestamp":"2026-01-01T00:00:20Z","event":{"id":"ecs-2","action":"privilege-change","ingested":"2026-01-01T00:00:24Z","outcome":"success"},"user":{"id":"synthetic-user-02"}}

@@ -1,0 +1,8 @@
+[
+  {"name": "Google parser loses actor", "operation": "drop_field", "kind": "RESOURCE_PERMISSIONS_CHANGE", "field": "fields.actor"},
+  {"name": "Google IAM evidence arrives after SLA but before cutoff", "operation": "delay", "kind": "RESOURCE_PERMISSIONS_CHANGE", "seconds": 20},
+  {"name": "Google IAM evidence arrives after cutoff", "operation": "delay", "kind": "RESOURCE_PERMISSIONS_CHANGE", "seconds": 90},
+  {"name": "Azure diagnostic source disappears", "operation": "drop_kind", "kind": "diagnostic_change"},
+  {"name": "Azure authentication is sampled", "operation": "sample", "kind": "authentication_failure", "every": 3},
+  {"name": "Google identities collapse onto the login identity", "operation": "replace_field", "kind": "RESOURCE_PERMISSIONS_CHANGE", "field": "fields.actor", "value": "cross@example.test"}
+]

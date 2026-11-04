@@ -1,0 +1,6 @@
+__pycache__/
+.ruff_cache/
+*.py[cod]
+.venv/
+dist/
+var/

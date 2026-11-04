@@ -1,0 +1,10 @@
+{
+  "id": "event.id",
+  "kind": "event.action",
+  "time": "@timestamp",
+  "arrival": "event.ingested",
+  "identity": "user.id",
+  "fields": {
+    "outcome": "event.outcome"
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "rules": [
+    {
+      "id": "AZURE-ACCESS-THEN-RBAC-AND-LOG-CHANGE",
+      "description": "Two failures followed by success, RBAC assignment and a diagnostic change",
+      "window": 900,
+      "stages": [
+        {
+          "kind": "authentication_failure",
+          "join": "fields.actor"
+        },
+        {
+          "kind": "authentication_failure",
+          "join": "fields.actor"
+        },
+        {
+          "kind": "authentication_success",
+          "join": "fields.actor"
+        },
+        {
+          "kind": "rbac_assignment",
+          "join": "fields.actor"
+        },
+        {
+          "kind": "diagnostic_change",
+          "join": "fields.actor"
+        }
+      ]
+    },
+    {
+      "id": "GCP-LOGIN-THEN-IAM",
+      "description": "Successful login followed by SetIamPolicy for the same user",
+      "window": 120,
+      "stages": [
+        {
+          "kind": "USER_LOGIN",
+          "join": "fields.target_user",
+          "where": {
+            "fields.operation": "login_success"
+          }
+        },
+        {
+          "kind": "RESOURCE_PERMISSIONS_CHANGE",
+          "join": "fields.actor",
+          "where": {
+            "fields.operation": "SetIamPolicy"
+          }
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "name": "SentinelOps synthetic access and control-plane changes",
+      "deadline": 1792325640,
+      "baseline": {
+        "file": "lab-exports/sentinel-positive.json",
+        "format": "sentinelops-rba"
+      },
+      "candidate": {
+        "file": "lab-exports/sentinel-positive.json",
+        "format": "sentinelops-rba"
+      },
+      "expect": {
+        "AZURE-ACCESS-THEN-RBAC-AND-LOG-CHANGE": {
+          "detected": true,
+          "max_lag": 10,
+          "terminals": [
+            "synthetic-fc5f582101a959ebb56e0bfc98ee0e67",
+            "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+          ]
+        }
+      }
+    },
+    {
+      "name": "SentinelOps access without diagnostic change",
+      "deadline": 1792325640,
+      "baseline": {
+        "file": "lab-exports/sentinel-benign.json",
+        "format": "sentinelops-rba"
+      },
+      "candidate": {
+        "file": "lab-exports/sentinel-benign.json",
+        "format": "sentinelops-rba"
+      },
+      "expect": {
+        "AZURE-ACCESS-THEN-RBAC-AND-LOG-CHANGE": {
+          "detected": false
+        }
+      }
+    },
+    {
+      "name": "Google SecOps Lab cross-source scenario",
+      "deadline": 1768899695,
+      "baseline": {
+        "file": "lab-exports/google-positive.jsonl",
+        "format": "google-secops-lab"
+      },
+      "candidate": {
+        "file": "lab-exports/google-positive.jsonl",
+        "format": "google-secops-lab"
+      },
+      "expect": {
+        "GCP-LOGIN-THEN-IAM": {
+          "detected": true,
+          "max_lag": 10,
+          "terminals": [
+            "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Google SecOps Lab distinct identity variant",
+      "deadline": 1768899695,
+      "baseline": {
+        "file": "lab-exports/google-benign.jsonl",
+        "format": "google-secops-lab"
+      },
+      "candidate": {
+        "file": "lab-exports/google-benign.jsonl",
+        "format": "google-secops-lab"
+      },
+      "expect": {
+        "GCP-LOGIN-THEN-IAM": {
+          "detected": false
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "rules": [
+    {
+      "id": "ECS-LOGIN-THEN-PRIVILEGE",
+      "window": 60,
+      "stages": [
+        {
+          "kind": "login",
+          "join": "identity",
+          "where": {
+            "fields.outcome": "success"
+          }
+        },
+        {
+          "kind": "privilege-change",
+          "join": "identity",
+          "where": {
+            "fields.outcome": "success"
+          }
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "name": "positive",
+      "deadline": 1767225660,
+      "baseline": {
+        "file": "lab-exports/ecs-positive.jsonl",
+        "format": "mapped-jsonl",
+        "mapping": {
+          "id": "event.id",
+          "kind": "event.action",
+          "time": "@timestamp",
+          "arrival": "event.ingested",
+          "identity": "user.id",
+          "fields": {
+            "outcome": "event.outcome"
+          }
+        }
+      },
+      "candidate": {
+        "file": "lab-exports/ecs-positive.jsonl",
+        "format": "mapped-jsonl",
+        "mapping": {
+          "id": "event.id",
+          "kind": "event.action",
+          "time": "@timestamp",
+          "arrival": "event.ingested",
+          "identity": "user.id",
+          "fields": {
+            "outcome": "event.outcome"
+          }
+        }
+      },
+      "expect": {
+        "ECS-LOGIN-THEN-PRIVILEGE": {
+          "detected": true,
+          "max_lag": 4,
+          "terminals": [
+            "ecs-2"
+          ]
+        }
+      }
+    },
+    {
+      "name": "benign",
+      "deadline": 1767225660,
+      "baseline": {
+        "file": "lab-exports/ecs-benign.jsonl",
+        "format": "mapped-jsonl",
+        "mapping": {
+          "id": "event.id",
+          "kind": "event.action",
+          "time": "@timestamp",
+          "arrival": "event.ingested",
+          "identity": "user.id",
+          "fields": {
+            "outcome": "event.outcome"
+          }
+        }
+      },
+      "candidate": {
+        "file": "lab-exports/ecs-benign.jsonl",
+        "format": "mapped-jsonl",
+        "mapping": {
+          "id": "event.id",
+          "kind": "event.action",
+          "time": "@timestamp",
+          "arrival": "event.ingested",
+          "identity": "user.id",
+          "fields": {
+            "outcome": "event.outcome"
+          }
+        }
+      },
+      "expect": {
+        "ECS-LOGIN-THEN-PRIVILEGE": {
+          "detected": false
+        }
+      }
+    }
+  ]
+}

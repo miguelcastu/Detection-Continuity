@@ -1,0 +1,2363 @@
+{
+  "report_version": 1,
+  "tool_version": "1.0.0",
+  "evidence": "offline_reference_replay",
+  "suite_sha256": "7ef78785f01b6e444ba5c7b330482c228366b8749fe964d32561b7043e436c3b",
+  "faults_sha256": "340dfb88e9728285920572557595e3d612c2afb1ae9f3285b664ebf05f1d4443",
+  "faults": [
+    {
+      "fault": {
+        "name": "Google parser loses actor",
+        "operation": "drop_field",
+        "kind": "RESOURCE_PERMISSIONS_CHANGE",
+        "field": "fields.actor"
+      },
+      "affected_events": 2,
+      "metrics": {
+        "tp": 1,
+        "tn": 2,
+        "fn": 1
+      },
+      "summary": {
+        "pass": 3,
+        "regression": 1
+      },
+      "assertions": [
+        {
+          "case": "SentinelOps synthetic access and control-plane changes",
+          "rule": "AZURE-ACCESS-THEN-RBAC-AND-LOG-CHANGE",
+          "status": "pass",
+          "rule_sha256": "e74e6a7a5d6d388bd1f023f5f3f715550efed0f150d6f8d38619fe7a350d0288",
+          "deadline": 1792325640,
+          "expected": {
+            "detected": true,
+            "max_lag": 10,
+            "terminals": [
+              "synthetic-fc5f582101a959ebb56e0bfc98ee0e67",
+              "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+            ]
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "synthetic-50e4f67e16f25074bc2255dbc9376a08",
+                  "synthetic-0a3f32aee0bc57b78a7464518812fa50",
+                  "synthetic-8939080450a15d118fd86ae654ca478e",
+                  "synthetic-8d637e5ec1aa55d5a611d99161b99e86",
+                  "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+              },
+              {
+                "ids": [
+                  "synthetic-efc879683f4c51cd8ec068a875b85a81",
+                  "synthetic-2c5be1cc6dff54d9a21147cfbb46b11b",
+                  "synthetic-742a1a0130455f3aa74dcf2f45ac94df",
+                  "synthetic-9517ad7351ad54be8ed240b00b0f053b",
+                  "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 17,
+            "events_sha256": "30002df618843277ed2c9279a55c76435977bf95fe0b567bb0af188a84538a99"
+          },
+          "candidate": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "synthetic-50e4f67e16f25074bc2255dbc9376a08",
+                  "synthetic-0a3f32aee0bc57b78a7464518812fa50",
+                  "synthetic-8939080450a15d118fd86ae654ca478e",
+                  "synthetic-8d637e5ec1aa55d5a611d99161b99e86",
+                  "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+              },
+              {
+                "ids": [
+                  "synthetic-efc879683f4c51cd8ec068a875b85a81",
+                  "synthetic-2c5be1cc6dff54d9a21147cfbb46b11b",
+                  "synthetic-742a1a0130455f3aa74dcf2f45ac94df",
+                  "synthetic-9517ad7351ad54be8ed240b00b0f053b",
+                  "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 17,
+            "events_sha256": "30002df618843277ed2c9279a55c76435977bf95fe0b567bb0af188a84538a99"
+          }
+        },
+        {
+          "case": "SentinelOps access without diagnostic change",
+          "rule": "AZURE-ACCESS-THEN-RBAC-AND-LOG-CHANGE",
+          "status": "pass",
+          "rule_sha256": "e74e6a7a5d6d388bd1f023f5f3f715550efed0f150d6f8d38619fe7a350d0288",
+          "deadline": 1792325640,
+          "expected": {
+            "detected": false
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {}
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 15,
+            "events_sha256": "3483312dda556bb6f769e9c7e0994a6af764d765b2ad4ffe065c994377f657d0"
+          },
+          "candidate": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {}
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 15,
+            "events_sha256": "3483312dda556bb6f769e9c7e0994a6af764d765b2ad4ffe065c994377f657d0"
+          }
+        },
+        {
+          "case": "Google SecOps Lab cross-source scenario",
+          "rule": "GCP-LOGIN-THEN-IAM",
+          "status": "regression",
+          "rule_sha256": "82b532b640ba6dd587a6401bf968f4b5f0f1332f13ae82a41a480e1c6111eae2",
+          "deadline": 1768899695,
+          "expected": {
+            "detected": true,
+            "max_lag": 10,
+            "terminals": [
+              "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+            ]
+          },
+          "baseline_violations": [],
+          "candidate_violations": [
+            "missed_detection"
+          ],
+          "baseline": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "855e6b665e400776553b3b31f272bc1e7344bbdb8c035167c4ddd1af79123dbc",
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ],
+                "ready": 1768899635,
+                "lag": 0,
+                "terminal": "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {}
+            ],
+            "unique_events": 2,
+            "events_sha256": "2b73f3baebddb626033f939311edd3ef224ef55aeeab9ab8a46e206025b3a004"
+          },
+          "candidate": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "missing_join": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "missing_join": [
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ]
+              }
+            ],
+            "unique_events": 2,
+            "events_sha256": "aeb78d973a54a4024142da075614111bed8b91d27e6e3dd87944a065623b2a89"
+          }
+        },
+        {
+          "case": "Google SecOps Lab distinct identity variant",
+          "rule": "GCP-LOGIN-THEN-IAM",
+          "status": "pass",
+          "rule_sha256": "82b532b640ba6dd587a6401bf968f4b5f0f1332f13ae82a41a480e1c6111eae2",
+          "deadline": 1768899695,
+          "expected": {
+            "detected": false
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1,
+                "no_preceding_stage": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ]
+              }
+            ],
+            "unique_events": 2,
+            "events_sha256": "9144e5cec7d564a7a39c6f97e9abe1a0abab3d203e28bd8b00165cc3644ee485"
+          },
+          "candidate": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "missing_join": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "missing_join": [
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ]
+              }
+            ],
+            "unique_events": 2,
+            "events_sha256": "aeb78d973a54a4024142da075614111bed8b91d27e6e3dd87944a065623b2a89"
+          }
+        }
+      ]
+    },
+    {
+      "fault": {
+        "name": "Google IAM evidence arrives after SLA but before cutoff",
+        "operation": "delay",
+        "kind": "RESOURCE_PERMISSIONS_CHANGE",
+        "seconds": 20
+      },
+      "affected_events": 2,
+      "metrics": {
+        "tp": 2,
+        "tn": 2
+      },
+      "summary": {
+        "pass": 3,
+        "regression": 1
+      },
+      "assertions": [
+        {
+          "case": "SentinelOps synthetic access and control-plane changes",
+          "rule": "AZURE-ACCESS-THEN-RBAC-AND-LOG-CHANGE",
+          "status": "pass",
+          "rule_sha256": "e74e6a7a5d6d388bd1f023f5f3f715550efed0f150d6f8d38619fe7a350d0288",
+          "deadline": 1792325640,
+          "expected": {
+            "detected": true,
+            "max_lag": 10,
+            "terminals": [
+              "synthetic-fc5f582101a959ebb56e0bfc98ee0e67",
+              "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+            ]
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "synthetic-50e4f67e16f25074bc2255dbc9376a08",
+                  "synthetic-0a3f32aee0bc57b78a7464518812fa50",
+                  "synthetic-8939080450a15d118fd86ae654ca478e",
+                  "synthetic-8d637e5ec1aa55d5a611d99161b99e86",
+                  "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+              },
+              {
+                "ids": [
+                  "synthetic-efc879683f4c51cd8ec068a875b85a81",
+                  "synthetic-2c5be1cc6dff54d9a21147cfbb46b11b",
+                  "synthetic-742a1a0130455f3aa74dcf2f45ac94df",
+                  "synthetic-9517ad7351ad54be8ed240b00b0f053b",
+                  "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 17,
+            "events_sha256": "30002df618843277ed2c9279a55c76435977bf95fe0b567bb0af188a84538a99"
+          },
+          "candidate": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "synthetic-50e4f67e16f25074bc2255dbc9376a08",
+                  "synthetic-0a3f32aee0bc57b78a7464518812fa50",
+                  "synthetic-8939080450a15d118fd86ae654ca478e",
+                  "synthetic-8d637e5ec1aa55d5a611d99161b99e86",
+                  "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+              },
+              {
+                "ids": [
+                  "synthetic-efc879683f4c51cd8ec068a875b85a81",
+                  "synthetic-2c5be1cc6dff54d9a21147cfbb46b11b",
+                  "synthetic-742a1a0130455f3aa74dcf2f45ac94df",
+                  "synthetic-9517ad7351ad54be8ed240b00b0f053b",
+                  "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 17,
+            "events_sha256": "30002df618843277ed2c9279a55c76435977bf95fe0b567bb0af188a84538a99"
+          }
+        },
+        {
+          "case": "SentinelOps access without diagnostic change",
+          "rule": "AZURE-ACCESS-THEN-RBAC-AND-LOG-CHANGE",
+          "status": "pass",
+          "rule_sha256": "e74e6a7a5d6d388bd1f023f5f3f715550efed0f150d6f8d38619fe7a350d0288",
+          "deadline": 1792325640,
+          "expected": {
+            "detected": false
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {}
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 15,
+            "events_sha256": "3483312dda556bb6f769e9c7e0994a6af764d765b2ad4ffe065c994377f657d0"
+          },
+          "candidate": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {}
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 15,
+            "events_sha256": "3483312dda556bb6f769e9c7e0994a6af764d765b2ad4ffe065c994377f657d0"
+          }
+        },
+        {
+          "case": "Google SecOps Lab cross-source scenario",
+          "rule": "GCP-LOGIN-THEN-IAM",
+          "status": "regression",
+          "rule_sha256": "82b532b640ba6dd587a6401bf968f4b5f0f1332f13ae82a41a480e1c6111eae2",
+          "deadline": 1768899695,
+          "expected": {
+            "detected": true,
+            "max_lag": 10,
+            "terminals": [
+              "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+            ]
+          },
+          "baseline_violations": [],
+          "candidate_violations": [
+            "lag_budget_exceeded"
+          ],
+          "baseline": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "855e6b665e400776553b3b31f272bc1e7344bbdb8c035167c4ddd1af79123dbc",
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ],
+                "ready": 1768899635,
+                "lag": 0,
+                "terminal": "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {}
+            ],
+            "unique_events": 2,
+            "events_sha256": "2b73f3baebddb626033f939311edd3ef224ef55aeeab9ab8a46e206025b3a004"
+          },
+          "candidate": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "855e6b665e400776553b3b31f272bc1e7344bbdb8c035167c4ddd1af79123dbc",
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ],
+                "ready": 1768899655,
+                "lag": 20,
+                "terminal": "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {}
+            ],
+            "unique_events": 2,
+            "events_sha256": "9aea87343242e9eeaab9d12b886833260cbe9b9ef809ad3063059f517ad48689"
+          }
+        },
+        {
+          "case": "Google SecOps Lab distinct identity variant",
+          "rule": "GCP-LOGIN-THEN-IAM",
+          "status": "pass",
+          "rule_sha256": "82b532b640ba6dd587a6401bf968f4b5f0f1332f13ae82a41a480e1c6111eae2",
+          "deadline": 1768899695,
+          "expected": {
+            "detected": false
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1,
+                "no_preceding_stage": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ]
+              }
+            ],
+            "unique_events": 2,
+            "events_sha256": "9144e5cec7d564a7a39c6f97e9abe1a0abab3d203e28bd8b00165cc3644ee485"
+          },
+          "candidate": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1,
+                "no_preceding_stage": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ]
+              }
+            ],
+            "unique_events": 2,
+            "events_sha256": "92d724572aa90e724dd575751ee85a6cd688ed65761123d3827e4876695333ab"
+          }
+        }
+      ]
+    },
+    {
+      "fault": {
+        "name": "Google IAM evidence arrives after cutoff",
+        "operation": "delay",
+        "kind": "RESOURCE_PERMISSIONS_CHANGE",
+        "seconds": 90
+      },
+      "affected_events": 2,
+      "metrics": {
+        "tp": 1,
+        "tn": 2,
+        "fn": 1
+      },
+      "summary": {
+        "pass": 3,
+        "regression": 1
+      },
+      "assertions": [
+        {
+          "case": "SentinelOps synthetic access and control-plane changes",
+          "rule": "AZURE-ACCESS-THEN-RBAC-AND-LOG-CHANGE",
+          "status": "pass",
+          "rule_sha256": "e74e6a7a5d6d388bd1f023f5f3f715550efed0f150d6f8d38619fe7a350d0288",
+          "deadline": 1792325640,
+          "expected": {
+            "detected": true,
+            "max_lag": 10,
+            "terminals": [
+              "synthetic-fc5f582101a959ebb56e0bfc98ee0e67",
+              "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+            ]
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "synthetic-50e4f67e16f25074bc2255dbc9376a08",
+                  "synthetic-0a3f32aee0bc57b78a7464518812fa50",
+                  "synthetic-8939080450a15d118fd86ae654ca478e",
+                  "synthetic-8d637e5ec1aa55d5a611d99161b99e86",
+                  "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+              },
+              {
+                "ids": [
+                  "synthetic-efc879683f4c51cd8ec068a875b85a81",
+                  "synthetic-2c5be1cc6dff54d9a21147cfbb46b11b",
+                  "synthetic-742a1a0130455f3aa74dcf2f45ac94df",
+                  "synthetic-9517ad7351ad54be8ed240b00b0f053b",
+                  "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 17,
+            "events_sha256": "30002df618843277ed2c9279a55c76435977bf95fe0b567bb0af188a84538a99"
+          },
+          "candidate": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "synthetic-50e4f67e16f25074bc2255dbc9376a08",
+                  "synthetic-0a3f32aee0bc57b78a7464518812fa50",
+                  "synthetic-8939080450a15d118fd86ae654ca478e",
+                  "synthetic-8d637e5ec1aa55d5a611d99161b99e86",
+                  "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+              },
+              {
+                "ids": [
+                  "synthetic-efc879683f4c51cd8ec068a875b85a81",
+                  "synthetic-2c5be1cc6dff54d9a21147cfbb46b11b",
+                  "synthetic-742a1a0130455f3aa74dcf2f45ac94df",
+                  "synthetic-9517ad7351ad54be8ed240b00b0f053b",
+                  "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 17,
+            "events_sha256": "30002df618843277ed2c9279a55c76435977bf95fe0b567bb0af188a84538a99"
+          }
+        },
+        {
+          "case": "SentinelOps access without diagnostic change",
+          "rule": "AZURE-ACCESS-THEN-RBAC-AND-LOG-CHANGE",
+          "status": "pass",
+          "rule_sha256": "e74e6a7a5d6d388bd1f023f5f3f715550efed0f150d6f8d38619fe7a350d0288",
+          "deadline": 1792325640,
+          "expected": {
+            "detected": false
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {}
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 15,
+            "events_sha256": "3483312dda556bb6f769e9c7e0994a6af764d765b2ad4ffe065c994377f657d0"
+          },
+          "candidate": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {}
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 15,
+            "events_sha256": "3483312dda556bb6f769e9c7e0994a6af764d765b2ad4ffe065c994377f657d0"
+          }
+        },
+        {
+          "case": "Google SecOps Lab cross-source scenario",
+          "rule": "GCP-LOGIN-THEN-IAM",
+          "status": "regression",
+          "rule_sha256": "82b532b640ba6dd587a6401bf968f4b5f0f1332f13ae82a41a480e1c6111eae2",
+          "deadline": 1768899695,
+          "expected": {
+            "detected": true,
+            "max_lag": 10,
+            "terminals": [
+              "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+            ]
+          },
+          "baseline_violations": [],
+          "candidate_violations": [
+            "missed_detection"
+          ],
+          "baseline": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "855e6b665e400776553b3b31f272bc1e7344bbdb8c035167c4ddd1af79123dbc",
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ],
+                "ready": 1768899635,
+                "lag": 0,
+                "terminal": "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {}
+            ],
+            "unique_events": 2,
+            "events_sha256": "2b73f3baebddb626033f939311edd3ef224ef55aeeab9ab8a46e206025b3a004"
+          },
+          "candidate": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "late": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "late": [
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ]
+              }
+            ],
+            "unique_events": 2,
+            "events_sha256": "8f14145b94ea2e75c416ce903e019188e9477dc0271fbc347940a1e909d53d5d"
+          }
+        },
+        {
+          "case": "Google SecOps Lab distinct identity variant",
+          "rule": "GCP-LOGIN-THEN-IAM",
+          "status": "pass",
+          "rule_sha256": "82b532b640ba6dd587a6401bf968f4b5f0f1332f13ae82a41a480e1c6111eae2",
+          "deadline": 1768899695,
+          "expected": {
+            "detected": false
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1,
+                "no_preceding_stage": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ]
+              }
+            ],
+            "unique_events": 2,
+            "events_sha256": "9144e5cec7d564a7a39c6f97e9abe1a0abab3d203e28bd8b00165cc3644ee485"
+          },
+          "candidate": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "late": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "late": [
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ]
+              }
+            ],
+            "unique_events": 2,
+            "events_sha256": "5715cdf6cc55fc774ca33de60628e411c49f42d528e2c7da6374576066758dea"
+          }
+        }
+      ]
+    },
+    {
+      "fault": {
+        "name": "Azure diagnostic source disappears",
+        "operation": "drop_kind",
+        "kind": "diagnostic_change"
+      },
+      "affected_events": 2,
+      "metrics": {
+        "fn": 1,
+        "tn": 2,
+        "tp": 1
+      },
+      "summary": {
+        "regression": 1,
+        "pass": 3
+      },
+      "assertions": [
+        {
+          "case": "SentinelOps synthetic access and control-plane changes",
+          "rule": "AZURE-ACCESS-THEN-RBAC-AND-LOG-CHANGE",
+          "status": "regression",
+          "rule_sha256": "e74e6a7a5d6d388bd1f023f5f3f715550efed0f150d6f8d38619fe7a350d0288",
+          "deadline": 1792325640,
+          "expected": {
+            "detected": true,
+            "max_lag": 10,
+            "terminals": [
+              "synthetic-fc5f582101a959ebb56e0bfc98ee0e67",
+              "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+            ]
+          },
+          "baseline_violations": [],
+          "candidate_violations": [
+            "missed_detection"
+          ],
+          "baseline": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "synthetic-50e4f67e16f25074bc2255dbc9376a08",
+                  "synthetic-0a3f32aee0bc57b78a7464518812fa50",
+                  "synthetic-8939080450a15d118fd86ae654ca478e",
+                  "synthetic-8d637e5ec1aa55d5a611d99161b99e86",
+                  "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+              },
+              {
+                "ids": [
+                  "synthetic-efc879683f4c51cd8ec068a875b85a81",
+                  "synthetic-2c5be1cc6dff54d9a21147cfbb46b11b",
+                  "synthetic-742a1a0130455f3aa74dcf2f45ac94df",
+                  "synthetic-9517ad7351ad54be8ed240b00b0f053b",
+                  "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 17,
+            "events_sha256": "30002df618843277ed2c9279a55c76435977bf95fe0b567bb0af188a84538a99"
+          },
+          "candidate": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {}
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 15,
+            "events_sha256": "3483312dda556bb6f769e9c7e0994a6af764d765b2ad4ffe065c994377f657d0"
+          }
+        },
+        {
+          "case": "SentinelOps access without diagnostic change",
+          "rule": "AZURE-ACCESS-THEN-RBAC-AND-LOG-CHANGE",
+          "status": "pass",
+          "rule_sha256": "e74e6a7a5d6d388bd1f023f5f3f715550efed0f150d6f8d38619fe7a350d0288",
+          "deadline": 1792325640,
+          "expected": {
+            "detected": false
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {}
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 15,
+            "events_sha256": "3483312dda556bb6f769e9c7e0994a6af764d765b2ad4ffe065c994377f657d0"
+          },
+          "candidate": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {}
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 15,
+            "events_sha256": "3483312dda556bb6f769e9c7e0994a6af764d765b2ad4ffe065c994377f657d0"
+          }
+        },
+        {
+          "case": "Google SecOps Lab cross-source scenario",
+          "rule": "GCP-LOGIN-THEN-IAM",
+          "status": "pass",
+          "rule_sha256": "82b532b640ba6dd587a6401bf968f4b5f0f1332f13ae82a41a480e1c6111eae2",
+          "deadline": 1768899695,
+          "expected": {
+            "detected": true,
+            "max_lag": 10,
+            "terminals": [
+              "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+            ]
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "855e6b665e400776553b3b31f272bc1e7344bbdb8c035167c4ddd1af79123dbc",
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ],
+                "ready": 1768899635,
+                "lag": 0,
+                "terminal": "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {}
+            ],
+            "unique_events": 2,
+            "events_sha256": "2b73f3baebddb626033f939311edd3ef224ef55aeeab9ab8a46e206025b3a004"
+          },
+          "candidate": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "855e6b665e400776553b3b31f272bc1e7344bbdb8c035167c4ddd1af79123dbc",
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ],
+                "ready": 1768899635,
+                "lag": 0,
+                "terminal": "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {}
+            ],
+            "unique_events": 2,
+            "events_sha256": "2b73f3baebddb626033f939311edd3ef224ef55aeeab9ab8a46e206025b3a004"
+          }
+        },
+        {
+          "case": "Google SecOps Lab distinct identity variant",
+          "rule": "GCP-LOGIN-THEN-IAM",
+          "status": "pass",
+          "rule_sha256": "82b532b640ba6dd587a6401bf968f4b5f0f1332f13ae82a41a480e1c6111eae2",
+          "deadline": 1768899695,
+          "expected": {
+            "detected": false
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1,
+                "no_preceding_stage": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ]
+              }
+            ],
+            "unique_events": 2,
+            "events_sha256": "9144e5cec7d564a7a39c6f97e9abe1a0abab3d203e28bd8b00165cc3644ee485"
+          },
+          "candidate": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1,
+                "no_preceding_stage": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ]
+              }
+            ],
+            "unique_events": 2,
+            "events_sha256": "9144e5cec7d564a7a39c6f97e9abe1a0abab3d203e28bd8b00165cc3644ee485"
+          }
+        }
+      ]
+    },
+    {
+      "fault": {
+        "name": "Azure authentication is sampled",
+        "operation": "sample",
+        "kind": "authentication_failure",
+        "every": 3
+      },
+      "affected_events": 8,
+      "metrics": {
+        "tp": 2,
+        "tn": 2
+      },
+      "summary": {
+        "regression": 1,
+        "pass": 3
+      },
+      "assertions": [
+        {
+          "case": "SentinelOps synthetic access and control-plane changes",
+          "rule": "AZURE-ACCESS-THEN-RBAC-AND-LOG-CHANGE",
+          "status": "regression",
+          "rule_sha256": "e74e6a7a5d6d388bd1f023f5f3f715550efed0f150d6f8d38619fe7a350d0288",
+          "deadline": 1792325640,
+          "expected": {
+            "detected": true,
+            "max_lag": 10,
+            "terminals": [
+              "synthetic-fc5f582101a959ebb56e0bfc98ee0e67",
+              "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+            ]
+          },
+          "baseline_violations": [],
+          "candidate_violations": [
+            "terminal_evidence_changed"
+          ],
+          "baseline": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "synthetic-50e4f67e16f25074bc2255dbc9376a08",
+                  "synthetic-0a3f32aee0bc57b78a7464518812fa50",
+                  "synthetic-8939080450a15d118fd86ae654ca478e",
+                  "synthetic-8d637e5ec1aa55d5a611d99161b99e86",
+                  "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+              },
+              {
+                "ids": [
+                  "synthetic-efc879683f4c51cd8ec068a875b85a81",
+                  "synthetic-2c5be1cc6dff54d9a21147cfbb46b11b",
+                  "synthetic-742a1a0130455f3aa74dcf2f45ac94df",
+                  "synthetic-9517ad7351ad54be8ed240b00b0f053b",
+                  "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 17,
+            "events_sha256": "30002df618843277ed2c9279a55c76435977bf95fe0b567bb0af188a84538a99"
+          },
+          "candidate": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-efc879683f4c51cd8ec068a875b85a81",
+                  "synthetic-742a1a0130455f3aa74dcf2f45ac94df",
+                  "synthetic-9517ad7351ad54be8ed240b00b0f053b",
+                  "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2,
+                "no_preceding_stage": 1
+              },
+              {
+                "seen": 2,
+                "eligible": 2,
+                "no_preceding_stage": 1
+              },
+              {
+                "seen": 3,
+                "eligible": 3,
+                "no_preceding_stage": 1
+              },
+              {
+                "seen": 2,
+                "eligible": 2,
+                "no_preceding_stage": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e"
+                ]
+              },
+              {
+                "no_preceding_stage": [
+                  "synthetic-8939080450a15d118fd86ae654ca478e"
+                ]
+              },
+              {
+                "no_preceding_stage": [
+                  "synthetic-8d637e5ec1aa55d5a611d99161b99e86"
+                ]
+              },
+              {
+                "no_preceding_stage": [
+                  "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+                ]
+              }
+            ],
+            "unique_events": 13,
+            "events_sha256": "a873f68f626c34eb677bbdc01bd1b5ac16d3981b941161c87ca1ace2eaea6709"
+          }
+        },
+        {
+          "case": "SentinelOps access without diagnostic change",
+          "rule": "AZURE-ACCESS-THEN-RBAC-AND-LOG-CHANGE",
+          "status": "pass",
+          "rule_sha256": "e74e6a7a5d6d388bd1f023f5f3f715550efed0f150d6f8d38619fe7a350d0288",
+          "deadline": 1792325640,
+          "expected": {
+            "detected": false
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {}
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 15,
+            "events_sha256": "3483312dda556bb6f769e9c7e0994a6af764d765b2ad4ffe065c994377f657d0"
+          },
+          "candidate": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2,
+                "no_preceding_stage": 1
+              },
+              {
+                "seen": 2,
+                "eligible": 2,
+                "no_preceding_stage": 1
+              },
+              {
+                "seen": 3,
+                "eligible": 3,
+                "no_preceding_stage": 1
+              },
+              {}
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e"
+                ]
+              },
+              {
+                "no_preceding_stage": [
+                  "synthetic-8939080450a15d118fd86ae654ca478e"
+                ]
+              },
+              {
+                "no_preceding_stage": [
+                  "synthetic-8d637e5ec1aa55d5a611d99161b99e86"
+                ]
+              },
+              {}
+            ],
+            "unique_events": 11,
+            "events_sha256": "78861f48a1c9a412fe6294d6ef1095623102d35368d0a678b9c4ddd1cf459e7a"
+          }
+        },
+        {
+          "case": "Google SecOps Lab cross-source scenario",
+          "rule": "GCP-LOGIN-THEN-IAM",
+          "status": "pass",
+          "rule_sha256": "82b532b640ba6dd587a6401bf968f4b5f0f1332f13ae82a41a480e1c6111eae2",
+          "deadline": 1768899695,
+          "expected": {
+            "detected": true,
+            "max_lag": 10,
+            "terminals": [
+              "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+            ]
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "855e6b665e400776553b3b31f272bc1e7344bbdb8c035167c4ddd1af79123dbc",
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ],
+                "ready": 1768899635,
+                "lag": 0,
+                "terminal": "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {}
+            ],
+            "unique_events": 2,
+            "events_sha256": "2b73f3baebddb626033f939311edd3ef224ef55aeeab9ab8a46e206025b3a004"
+          },
+          "candidate": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "855e6b665e400776553b3b31f272bc1e7344bbdb8c035167c4ddd1af79123dbc",
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ],
+                "ready": 1768899635,
+                "lag": 0,
+                "terminal": "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {}
+            ],
+            "unique_events": 2,
+            "events_sha256": "2b73f3baebddb626033f939311edd3ef224ef55aeeab9ab8a46e206025b3a004"
+          }
+        },
+        {
+          "case": "Google SecOps Lab distinct identity variant",
+          "rule": "GCP-LOGIN-THEN-IAM",
+          "status": "pass",
+          "rule_sha256": "82b532b640ba6dd587a6401bf968f4b5f0f1332f13ae82a41a480e1c6111eae2",
+          "deadline": 1768899695,
+          "expected": {
+            "detected": false
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1,
+                "no_preceding_stage": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ]
+              }
+            ],
+            "unique_events": 2,
+            "events_sha256": "9144e5cec7d564a7a39c6f97e9abe1a0abab3d203e28bd8b00165cc3644ee485"
+          },
+          "candidate": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1,
+                "no_preceding_stage": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ]
+              }
+            ],
+            "unique_events": 2,
+            "events_sha256": "9144e5cec7d564a7a39c6f97e9abe1a0abab3d203e28bd8b00165cc3644ee485"
+          }
+        }
+      ]
+    },
+    {
+      "fault": {
+        "name": "Google identities collapse onto the login identity",
+        "operation": "replace_field",
+        "kind": "RESOURCE_PERMISSIONS_CHANGE",
+        "field": "fields.actor",
+        "value": "cross@example.test"
+      },
+      "affected_events": 1,
+      "metrics": {
+        "tp": 2,
+        "tn": 1,
+        "fp": 1
+      },
+      "summary": {
+        "pass": 3,
+        "regression": 1
+      },
+      "assertions": [
+        {
+          "case": "SentinelOps synthetic access and control-plane changes",
+          "rule": "AZURE-ACCESS-THEN-RBAC-AND-LOG-CHANGE",
+          "status": "pass",
+          "rule_sha256": "e74e6a7a5d6d388bd1f023f5f3f715550efed0f150d6f8d38619fe7a350d0288",
+          "deadline": 1792325640,
+          "expected": {
+            "detected": true,
+            "max_lag": 10,
+            "terminals": [
+              "synthetic-fc5f582101a959ebb56e0bfc98ee0e67",
+              "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+            ]
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "synthetic-50e4f67e16f25074bc2255dbc9376a08",
+                  "synthetic-0a3f32aee0bc57b78a7464518812fa50",
+                  "synthetic-8939080450a15d118fd86ae654ca478e",
+                  "synthetic-8d637e5ec1aa55d5a611d99161b99e86",
+                  "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+              },
+              {
+                "ids": [
+                  "synthetic-efc879683f4c51cd8ec068a875b85a81",
+                  "synthetic-2c5be1cc6dff54d9a21147cfbb46b11b",
+                  "synthetic-742a1a0130455f3aa74dcf2f45ac94df",
+                  "synthetic-9517ad7351ad54be8ed240b00b0f053b",
+                  "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 17,
+            "events_sha256": "30002df618843277ed2c9279a55c76435977bf95fe0b567bb0af188a84538a99"
+          },
+          "candidate": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "synthetic-50e4f67e16f25074bc2255dbc9376a08",
+                  "synthetic-0a3f32aee0bc57b78a7464518812fa50",
+                  "synthetic-8939080450a15d118fd86ae654ca478e",
+                  "synthetic-8d637e5ec1aa55d5a611d99161b99e86",
+                  "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fc5f582101a959ebb56e0bfc98ee0e67"
+              },
+              {
+                "ids": [
+                  "synthetic-efc879683f4c51cd8ec068a875b85a81",
+                  "synthetic-2c5be1cc6dff54d9a21147cfbb46b11b",
+                  "synthetic-742a1a0130455f3aa74dcf2f45ac94df",
+                  "synthetic-9517ad7351ad54be8ed240b00b0f053b",
+                  "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+                ],
+                "ready": 1792325400,
+                "lag": 0,
+                "terminal": "synthetic-fdb7ef877b8e5d12a7e7027265051ec3"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 17,
+            "events_sha256": "30002df618843277ed2c9279a55c76435977bf95fe0b567bb0af188a84538a99"
+          }
+        },
+        {
+          "case": "SentinelOps access without diagnostic change",
+          "rule": "AZURE-ACCESS-THEN-RBAC-AND-LOG-CHANGE",
+          "status": "pass",
+          "rule_sha256": "e74e6a7a5d6d388bd1f023f5f3f715550efed0f150d6f8d38619fe7a350d0288",
+          "deadline": 1792325640,
+          "expected": {
+            "detected": false
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {}
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 15,
+            "events_sha256": "3483312dda556bb6f769e9c7e0994a6af764d765b2ad4ffe065c994377f657d0"
+          },
+          "candidate": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 6,
+                "eligible": 6
+              },
+              {
+                "seen": 6,
+                "eligible": 6,
+                "no_preceding_stage": 2
+              },
+              {
+                "seen": 2,
+                "eligible": 2
+              },
+              {
+                "seen": 3,
+                "eligible": 3
+              },
+              {}
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "synthetic-9cfccc16bcf05a3b98d38c114274203e",
+                  "synthetic-9fa2832381825effa31f66e66a024a33"
+                ]
+              },
+              {},
+              {},
+              {}
+            ],
+            "unique_events": 15,
+            "events_sha256": "3483312dda556bb6f769e9c7e0994a6af764d765b2ad4ffe065c994377f657d0"
+          }
+        },
+        {
+          "case": "Google SecOps Lab cross-source scenario",
+          "rule": "GCP-LOGIN-THEN-IAM",
+          "status": "pass",
+          "rule_sha256": "82b532b640ba6dd587a6401bf968f4b5f0f1332f13ae82a41a480e1c6111eae2",
+          "deadline": 1768899695,
+          "expected": {
+            "detected": true,
+            "max_lag": 10,
+            "terminals": [
+              "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+            ]
+          },
+          "baseline_violations": [],
+          "candidate_violations": [],
+          "baseline": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "855e6b665e400776553b3b31f272bc1e7344bbdb8c035167c4ddd1af79123dbc",
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ],
+                "ready": 1768899635,
+                "lag": 0,
+                "terminal": "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {}
+            ],
+            "unique_events": 2,
+            "events_sha256": "2b73f3baebddb626033f939311edd3ef224ef55aeeab9ab8a46e206025b3a004"
+          },
+          "candidate": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "855e6b665e400776553b3b31f272bc1e7344bbdb8c035167c4ddd1af79123dbc",
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ],
+                "ready": 1768899635,
+                "lag": 0,
+                "terminal": "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {}
+            ],
+            "unique_events": 2,
+            "events_sha256": "2b73f3baebddb626033f939311edd3ef224ef55aeeab9ab8a46e206025b3a004"
+          }
+        },
+        {
+          "case": "Google SecOps Lab distinct identity variant",
+          "rule": "GCP-LOGIN-THEN-IAM",
+          "status": "regression",
+          "rule_sha256": "82b532b640ba6dd587a6401bf968f4b5f0f1332f13ae82a41a480e1c6111eae2",
+          "deadline": 1768899695,
+          "expected": {
+            "detected": false
+          },
+          "baseline_violations": [],
+          "candidate_violations": [
+            "new_false_positive"
+          ],
+          "baseline": {
+            "detected": false,
+            "matches": [],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1,
+                "no_preceding_stage": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {
+                "no_preceding_stage": [
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ]
+              }
+            ],
+            "unique_events": 2,
+            "events_sha256": "9144e5cec7d564a7a39c6f97e9abe1a0abab3d203e28bd8b00165cc3644ee485"
+          },
+          "candidate": {
+            "detected": true,
+            "matches": [
+              {
+                "ids": [
+                  "855e6b665e400776553b3b31f272bc1e7344bbdb8c035167c4ddd1af79123dbc",
+                  "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+                ],
+                "ready": 1768899635,
+                "lag": 0,
+                "terminal": "e95b4af38f8a627efc887cd1b6e8659b567bf7ae4607bbee5997a144209887c0"
+              }
+            ],
+            "stages": [
+              {
+                "seen": 1,
+                "eligible": 1
+              },
+              {
+                "seen": 1,
+                "eligible": 1
+              }
+            ],
+            "stage_samples": [
+              {},
+              {}
+            ],
+            "unique_events": 2,
+            "events_sha256": "2b73f3baebddb626033f939311edd3ef224ef55aeeab9ab8a46e206025b3a004"
+          }
+        }
+      ]
+    }
+  ]
+}
